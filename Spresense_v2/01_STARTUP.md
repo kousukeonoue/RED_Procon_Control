@@ -54,6 +54,24 @@ python3 -B radicon_udp_server.py --imu
 - 実機の最新版には、直進補正と旋回の微調整がある（例：45°・5°）。**正確なボタン割り当てと最新版のコードは、現行ファイルを回収後に確定**。
 - GitHubルートの旧 `for_raspberrypi/` とは違う可能性があるため、旧ファイルで上書きしない。
 
+## 2A. Kenshin実験用サーバーを使う場合
+
+`Spresense_v2/Kenshin/Kenshin/radicon_udp_server.py` は今日の試験ソースを整理した実験用コピーです。現在Piで動いているサーバーと同一とは未確認です。既存サーバーと同時にUDP 5005で起動しないでください。
+
+```bash
+pgrep -af 'radicon_udp_server|pospredict_bridge'
+ss -lunp | grep ':5005'
+```
+
+既存サーバーを停止して切り替えるときだけ、次を実行します。
+
+```bash
+cd ~/Red2.0-Control-Software/Spresense_v2/Kenshin/Kenshin
+python3 -B radicon_udp_server.py
+```
+
+Windows側は `Spresense_v2/Kenshin/CBox/` で `controller_check.py` を先に実行し、ボタン番号を確認してから `procon_send_kenshin.py` または `xbox_send_kenshin.py` を起動します。詳細は [Kenshin/README.md](Kenshin/README.md)。
+
 ## 3. UWB/アンカー（追加のSSH画面）
 
 研究室のUWB測距・データ保存プログラムを別画面で起動する。対象は **FTDI FT230X側** のシリアル。

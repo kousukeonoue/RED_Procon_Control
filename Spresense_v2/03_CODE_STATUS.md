@@ -18,7 +18,16 @@
 | Spresense CSV記録 | Pi `~/pospredict/record_csv.py` | **今回使ったコード** `Spresense_v2/tools/record_csv.py` に追加 |
 | UWB測距 | Pi `~/Red2.0-Control-Software/explore_algorithm/DS_TWR_SR150_Multisession2.py` 等 | 未回収・起動引数未確認 |
 | アンカー側サーバー | 実機上で要確認 | 起動コマンド、IP・ポート・ログ先を確認する必要がある |
+| 今日の実験用RED制御 | 提供された `radicon_udp_server_50cm.py` | `Kenshin/Kenshin/radicon_udp_server.py` に整理。50cm/XY機能を除去。実機稼働版との同一性は未確認 |
+| RED側モーター依存 | `MotorControl.py` | `Kenshin/Kenshin/MotorControl.py` に必要クラスを同梱。元は旧GitHub版からのコピーで、実機版との照合は未完了 |
+| 新しいPCコントローラー | Proコン / Xbox 360 | `Kenshin/CBox/` に送信コードと読み取り専用 `controller_check.py` を追加。ボタン割り当ては実機確認前 |
 | Motive | Motive実験PC | 操作手順のみ。CSV書き出し設定の詳細は要確認 |
+
+## UWB/アンカーの確認状況
+
+ユーザー提供の研究室リポジトリ一覧では、`RED_UWB_control-software` の `add_Spresense_MultiIMU` ブランチに `MURATA_Type_2BP/Raspberrypi_Multisession/version04.06.00/` とSR150のsession/MultiSessionファイルが存在します。ただし、この接続から研究室のPrivateリポジトリは404となり、現行ソースのシリアル設定・アンカーID・起動引数・アンカー側サーバー・通信ポートは直接確認できていません。
+
+過去の実験メモではUWB側FTDI FT230XとSpresense側CP2102Nが別々に認識されています。これは物理接続の過去記録であり、今日の接続保証ではありません。次回UWB使用時に `ls -l /dev/serial/by-id/` で再確認し、FTDI側を開くプロセス、使用するSR150コードの版、アンカー台数/ID、起動引数、アンカー側IP/ポート、CSV/CIR保存先を確定してください。UWBとSpresenseの同時動作も実機で未確認です。
 
 ## Raspberry Piの現行制御コードを安全に回収する
 

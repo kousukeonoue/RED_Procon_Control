@@ -12,6 +12,7 @@
 | [02_PORTS_AND_DATA.md](02_PORTS_AND_DATA.md) | **TCP/UDPポート・USBシリアル・CSV列・時刻同期** |
 | [03_CODE_STATUS.md](03_CODE_STATUS.md) | **今の実機コードがどこにあるか／最新版をGitHubに移す手順** |
 | [tools/record_csv.py](tools/record_csv.py) | **動作確認済みのSpresense CSV記録用Pythonコード** |
+| [Kenshin/README.md](Kenshin/README.md) | **Kenshin RED用のProコン/Xbox送信・RED制御コード** |
 
 ## 現在の構成
 
@@ -38,6 +39,10 @@ Motive（別PC）--> 剛体の位置・姿勢をCSV出力
 - `pospredict_bridge.py` は研究室側にあるソフトで、このフォルダにはソースを複製していません。権利・公開可否を確認する必要があります。
 - 現在のリポジトリは **public** です。研究の生データ・秘密情報・実験協力者の情報などは、公開許可を得るまでアップロードしないでください。
 - USBポートやPiのIPは接続により変わりえます。起動前に確認してください。
+
+## Kenshin RED用コード
+
+新しい実験用コードは [Kenshin/](Kenshin/) に分離しています。Windows側のProコン/Xbox送信コードは `Kenshin/CBox/`、RED側サーバーと `MotorControl.py` は `Kenshin/Kenshin/` です。50 cm移動機能は含めていません。これは今日の試験用ソースを整理したコピーであり、実機で稼働中のPiファイルと同一だと確認したものではありません。起動前に必ず [Kenshin/README.md](Kenshin/README.md) の注意事項を確認してください。
 
 ## 確認済み事項
 
