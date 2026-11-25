@@ -32,8 +32,8 @@ def main():
             ry = joy.get_axis(3) if joy.get_numaxes() > 3 else 0.0
             hat = joy.get_hat(0) if joy.get_numhats() else (0, 0)
             a, b, x, y = [joy.get_button(i) for i in range(4)]
-            l = joy.get_button(4) if joy.get_numbuttons() > 4 else 0
-            r = joy.get_button(5) if joy.get_numbuttons() > 5 else 0
+            l = joy.get_button(9) if joy.get_numbuttons() > 9 else 0
+            r = joy.get_button(10) if joy.get_numbuttons() > 10 else 0
             lt = joy.get_axis(4) if joy.get_numaxes() > 4 else -1.0
             rt = joy.get_axis(5) if joy.get_numaxes() > 5 else -1.0
             discrete = set()

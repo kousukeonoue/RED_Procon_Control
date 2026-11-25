@@ -69,7 +69,7 @@ The sender sends repeated `stop` packets when Ctrl+C is pressed or the controlle
 - Left stick: forward/back/left/right
 - X/Y: stop
 - D-pad left/right: 5° turns; up/down: forward/back
-- L/R: 45° turns
+- L/R: 45° turns (button indices 9/10, matching the existing Pro Controller sender's L/R indices)
 - Trigger axes 4/5: 90° turns
 
 ### Xbox 360 mapping (provisional until checked)
